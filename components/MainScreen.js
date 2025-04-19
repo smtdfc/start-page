@@ -48,7 +48,7 @@ export class MainScreen extends HTMLElement {
           </div>
           
         </div>
-        <img class="main-background" src="/assets/images/bg_2.jpg" />
+        <img class="main-background" src="./assets/images/bg_2.jpg" />
     `
   }
 }
