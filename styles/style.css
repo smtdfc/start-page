@@ -3,7 +3,7 @@
 	font-style: normal;
 	font-weight: 400;
 	src: local('Inter'),
-		url('./assets/fonts/Inter_28pt-Regular.ttf') format('truetype');
+		url('../assets/fonts/Inter_28pt-Regular.ttf') format('truetype');
 	font-display: swap;
 }
 
@@ -12,7 +12,7 @@
   font-style: normal;
   font-weight: 400;
   src: local('Material Icons'),
-    url('./assets/fonts/MaterialIconsOutlined-Regular.otf') format('truetype');
+    url('../assets/fonts/MaterialIconsOutlined-Regular.otf') format('truetype');
   font-display: swap;
 }
 
@@ -222,7 +222,7 @@ body {
 
 .list-app span {
   font-size: var(--list-app-item-font-size);
-  color: #333;
+  color: white;
 }
 
 .search-box {
@@ -233,7 +233,7 @@ body {
   border-radius: 30px;
   padding: 0.5rem 1rem;
   background: var(--search-box-bg);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(3px);
   min-width: 60vw;
   box-shadow: var(--box-shadow-default);
   transition: border-color var(--transition-border-color);

@@ -1,4 +1,6 @@
 import {} from './components/MainScreen.js';
+import {TimeProcess} from './processes/time.js';
+import {startProcess} from "./apis/process.js"
 
 
 window.addEventListener('resize', () => {
@@ -10,3 +12,9 @@ window.addEventListener('resize', () => {
   }
 });
 
+
+function main(){
+  startProcess(TimeProcess);
+}
+
+main()

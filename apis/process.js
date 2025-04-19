@@ -1,4 +1,4 @@
-window.K_PROCESSES = {};
+window.AURORA_DESK_PROCESS = {};
 
 export class Process {
   constructor(name, app = null) {
@@ -20,17 +20,17 @@ export function startProcess(process) {
   let pro = new process();
   let pid = Math.floor(Math.random() * 1234);
   pro.pid = pid;
-  K_PROCESSES[pid] = pro;
+  AURORA_DESK_PROCESS[pid] = pro;
   pro.onStart();
   return pro;
 }
 
 export function endProcess(pid) {
   
-  if (!K_PROCESSES[pid]) {
+  if (!AURORA_DESK_PROCESS[pid]) {
     throw Error("Cannot find process !");
   }
   
-  K_PROCESSES[pid].onClose();
-  delete K_PROCESSES[pid];
+  AURORA_DESK_PROCESS[pid].onClose();
+  delete AURORA_DESK_PROCESS[pid];
 }

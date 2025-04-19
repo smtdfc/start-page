@@ -15,8 +15,8 @@ export class ActionBar extends HTMLElement {
           <button class="btn-icon material-icons">bookmark</button>
         </div>
         <span class="time-display">
-          <span id="main-time-display" class="hour-display">10:30</span>
-          <span id="main-date-display"  class="date-display">Wes, 14th 02 2025</span>
+          <span id="main-time-display" class="hour-display">-</span>
+          <span id="main-date-display"  class="date-display">-</span>
         </span>
       </div>
     `
