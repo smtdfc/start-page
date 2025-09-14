@@ -2,27 +2,17 @@ const listApps = [
   {
     name: "Google",
     url: "https://www.google.com",
-    icon: "https://www.google.com/favicon.ico",
+    icon: "https://image.similarpng.com/file/similarpng/very-thumbnail/2020/06/Logo-google-icon-PNG.png",
   },
   {
     name: "YouTube",
     url: "https://www.youtube.com",
-    icon: "https://www.youtube.com/favicon.ico",
+    icon: "https://image.similarpng.com/file/similarpng/very-thumbnail/2021/10/Youtube-icon-design-on-transparent-background-PNG.png",
   },
   {
     name: "GitHub",
     url: "https://www.github.com",
     icon: "https://www.github.com/favicon.ico",
-  },
-  {
-    name: "Reddit",
-    url: "https://www.reddit.com",
-    icon: "https://www.reddit.com/favicon.ico",
-  },
-  {
-    name: "Stack Overflow",
-    url: "https://stackoverflow.com",
-    icon: "https://stackoverflow.com/favicon.ico",
   },
 ];
 
@@ -34,6 +24,8 @@ const marrkedAppsContainer = document.getElementById("marked-apps");
 const addAppBtn = document.getElementById("add-app-btn");
 const appNameInput = document.getElementById("app-name");
 const appUrlInput = document.getElementById("app-url");
+const searchInput = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-btn");
 
 function updateDate() {
   const dateElement = document.getElementById("date");
@@ -74,9 +66,11 @@ function renderMarkedApps() {
 openModalBtn.addEventListener("click", () => {
   modal.style.display = "block";
 });
+
 closeModalBtn.addEventListener("click", () => {
   modal.style.display = "none";
 });
+
 window.addEventListener("click", (e) => {
   if (e.target === modal) {
     modal.style.display = "none";
@@ -94,6 +88,21 @@ addAppBtn.addEventListener("click", () => {
     modal.style.display = "none";
   } else {
     alert("Please enter both app name and URL.");
+  }
+});
+
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    searchBtn.click();
+  }
+});
+
+searchBtn.addEventListener("click", () => {
+  const query = encodeURIComponent(searchInput.value.trim());
+  if (query) {
+    const searchUrl = `https://www.google.com/search?q=${query}`;
+
+    window.open(searchUrl, "_blank");
   }
 });
 
