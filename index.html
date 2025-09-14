@@ -1,17 +1,285 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start Page</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link rel="stylesheet" href="./styles/style.css" type="text/css" media="all" />
-  
-</head>
+    <!-- Material Symbols -->
 
-<body>
-    <main-screen></main-screen>
-    <script type="module" src="main.js"></script>
-</body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
 
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: whiite;
+        backdrop-filter: blur(10px);
+        color: black;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) s;
+      }
+
+      .navbar-btn-group {
+        display: flex;
+        gap: 10px;
+      }
+
+      .nav-btn-icon {
+        background: none;
+        border: none;
+        color: black;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 8px;
+        transition: transform 0.2s, color 0.2s;
+        border-radius: 50%;
+      }
+
+      .nav-btn-icon:hover {
+        transform: scale(0.9);
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-time-display {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-weight: bold;
+        flex-direction: column;
+        text-align: right;
+        align-items: flex-end;
+      }
+
+      #time {
+        font-size: 20px;
+      }
+
+      #date {
+        margin-left: 10px;
+        font-weight: normal;
+        font-size: 14px;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 60px);
+        background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80")
+          no-repeat center center fixed;
+        background-size: cover;
+      }
+
+      .search-box {
+        display: flex;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 25px;
+        padding: 10px 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-box input {
+        border: none;
+        outline: none;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 25px;
+        width: 300px;
+        background: transparent;
+      }
+
+      .search-box button {
+        background: none;
+        border: none;
+        color: black;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 8px;
+        transition: transform 0.2s, color 0.2s;
+        border-radius: 50%;
+      }
+
+      .search-box button:hover {
+        transform: scale(0.9);
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .marked-apps {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .marked-apps div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .marked-apps img {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        margin-bottom: 5px;
+        object-fit: cover;
+      }
+
+      .marked-apps span {
+        font-size: 12px;
+        color: black;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        width: 300px;
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .modal-header h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .modal-body {
+        font-size: 14px;
+        color: black;
+      }
+      .modal .nav-btn-icon {
+        font-size: 20px;
+        padding: 4px;
+      }
+      .modal .nav-btn-icon:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 10px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #4caf50;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.1s;
+      }
+
+      .btn:hover {
+        background-color: #45a049;
+      }
+
+      .btn:active {
+        background-color: #3e8e41;
+      }
+
+      .btn-primary {
+        background-color: #008cba;
+      }
+
+      .btn-primary:hover {
+        background-color: #007bb5;
+      }
+
+      .btn-primary:active {
+        background-color: #006f9a;
+      }
+    </style>
+
+    <nav class="navbar">
+      <div class="navbar-btn-group">
+        <button class="nav-btn-icon material-symbols-outlined" id="add-app">
+          add
+        </button>
+      </div>
+      <div class="navbar-time-display">
+        <span id="time">00:00</span>
+        <span id="date"> </span>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="search-box">
+        <input type="text" placeholder="Search..." />
+        <button class="nav-btn-icon material-symbols-outlined">search</button>
+      </div>
+
+      <div class="marked-apps" id="marked-apps"></div>
+    </div>
+
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Add app</h2>
+        <button class="nav-btn-icon material-symbols-outlined">close</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="app-name">App Name: </label>
+          <input type="text" id="app-name" name="app-name" />
+        </div>
+        <div class="form-group">
+          <label for="app-url">App URL: </label>
+          <input type="text" id="app-url" name="app-url" />
+        </div>
+        <button class="btn btn-primary" id="add-app-btn">Add</button>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>
